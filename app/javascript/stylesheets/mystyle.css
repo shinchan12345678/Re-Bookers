@@ -1,0 +1,11 @@
+header, nav,h1,h2,h3,h4,h5,th, .main-visual, footer {
+  font-family: 'Toppan Bunkyu Midashi Gothic';font-weight: bold;
+}
+
+.form_class:invalid {
+  border: solid 2px red;
+}
+
+input:invalid {
+  border: solid 2px red;
+}

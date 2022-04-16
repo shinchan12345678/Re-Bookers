@@ -1,6 +1,14 @@
-<h1>ようこそBookersへ!</h1>
-<div class="top-content">
-  <p>bookersでは、さまざまな書籍に関するあなたの意見や<br>印象を共有し交換することができます</p>
-  <%= link_to "start", books_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto text-center">
+      <h1 class="mt-5"><i class="fa-solid fa-dove"></i>  ようこそBookersへ!</h1>
+      <div class="top-content">
+        <p class="mt-3">bookersでは、さまざまな書籍に関するあなたの意見や<br>印象を共有し交換することができます</p>
+        <%= link_to "start", books_path ,{class: "btn btn-secondary col-7 mx-auto"}%>
+      </div>          
+    </div>
+  </div>
 </div>
+
+
 
