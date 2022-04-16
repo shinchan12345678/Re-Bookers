@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8 mx-auto">
-      <h2>ブックズ</h2>
+      <h2 class="mt-5">ブックズ</h2>
       <table class="table">
         <thead>
           <tr>
@@ -16,9 +16,9 @@
           <tr>
             <td><%= book.title %></td>
             <td><%= book.body %></td>
-            <td><%= link_to "Show",book_path(book.id) %>
-            <%= link_to "Edit",edit_book_path(book.id) %>
-            <%= link_to "Destroy",book_path(book.id),method: :delete,data: {confirm: "OK?"} %></td>
+            <td><%= link_to "Show",book_path(book.id),{class: "btn btn-outline-secondary px-2 mx-auto"} %>
+            <%= link_to "Edit",edit_book_path(book.id),{class: "btn btn-outline-danger px-2 mx-auto"} %>
+            <%= link_to "Destroy",book_path(book.id),method: :delete,data: {confirm: "OK?"} , class: "btn btn-outline-warning px-2 mx-auto" %></td>
           </tr>
           <% end %>
         </tbody>
@@ -27,7 +27,7 @@
       <div class="create-book">
         <% if @book.errors.any? %>
         <div class="error-content">
-          <p><%= @book.errors.count %>errors prohibited this book from being saved:</p>
+          <p class="error-text"><span><%= @book.errors.count %>errors prohibited this book from being saved:</span></p>
           <div class="errors-box">
             <ul>
             <% @book.errors.full_messages.each do |message| %>
@@ -35,18 +35,29 @@
             <% end %>
             </ul>
           </div>
+          <h3 class="mt-5">クリエイト</h3>
+          <%= form_with model: @book,url: (books_path),method: :post do |f| %>
+            <h5 class="is-invalid">タイトル</h5>
+            <%= f.text_field :title ,{class: "invalid"}%>
+            <h5 class="is-invalid">オピニオン</h5>
+            <%= f.text_field :body ,{class: "invalid"}%>
+            <p class="mt-3">
+              <%= f.submit "Create Book" ,{class: "btn btn-outline-success"}%>
+            </p>
+          <% end %>
         </div>
-        <% end %>
+        <% else %>
 
-        <h3>クリエイト</h3>
-        <%= form_with model: @book,url: (books_path),method: :post do |f| %>
-          <h5>タイトル</h5>
-          <%= f.text_field :title ,class: "is-invalid" %>
-          <h5>オピニオン</h5>
-          <%= f.text_field :body ,class: "is-invalid" %>
-          <p>
-            <%= f.submit "Create Book" %>
-          </p>
+          <h3 class="mt-5">クリエイト</h3>
+          <%= form_with model: @book,url: (books_path),method: :post do |f| %>
+            <h5>タイトル</h5>
+            <%= f.text_field :title %>
+            <h5>オピニオン</h5>
+            <%= f.text_field :body %>
+            <p class="mt-3">
+              <%= f.submit "Create Book" ,{class: "btn btn-outline-success"}%>
+            </p>
+          <% end %>
         <% end %>
       </div>
     </div>

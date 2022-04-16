@@ -2,10 +2,22 @@ header, nav,h1,h2,h3,h4,h5,th, .main-visual, footer {
   font-family: 'Toppan Bunkyu Midashi Gothic';font-weight: bold;
 }
 
-.form_class:invalid {
+.invalid,.error-text{
   border: solid 2px red;
 }
 
-input:invalid {
-  border: solid 2px red;
+.error-text{ 
+  background-color: red
 }
+
+.errors-box {
+  background-color: #d3d3d3;
+}
+
+.is-invalid {
+  color: red;
+}
+
+/*input:invalid {*/
+/*  border: solid 2px red;*/
+/*}*/
